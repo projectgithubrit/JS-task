@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: #000">Javascript program</h1>
+    <script>
+      // Function to concatenate two strings
+      function concatenateStrings(str1, str2) {
+        return str1 + str2;
+      }
+      console.log(concatenateStrings("Happy", " Holi"));
+
+      // Function to find the length of a string
+      function findStringLength(str) {
+        return str.length;
+      }
+      console.log(findStringLength("ThankYou"));
+
+      // Function to convert a string to uppercase
+      function convertToUppercase(str) {
+        return str.toUpperCase();
+      }
+      console.log(convertToUppercase("okay"));
+
+      // Function to convert a string to lowercase
+      function convertToLowercase(str) {
+        return str.toLowerCase();
+      }
+      console.log(convertToLowercase("WELCOME"));
+
+      // Function to extract a substring from a given string
+      function extractSubstring(str, startIndex, length) {
+        return str.substring(startIndex, startIndex + length);
+      }
+      console.log(extractSubstring("Hello World", 6, 5));
+
+      // Function to perform numerical operations (addition, subtraction, multiplication, division)
+      function performNumericalOperation(operation, num1, num2) {
+        switch (operation) {
+          case "addition":
+            return num1 + num2;
+          case "subtraction":
+            return num1 - num2;
+          case "multiplication":
+            return num1 * num2;
+          case "division":
+            if (num2 !== 0) {
+              return num1 / num2;
+            } else {
+              return "Cannot divide by zero";
+            }
+          default:
+            return "Invalid operation";
+        }
+      }
+      console.log(performNumericalOperation("addition", 8, 9));
+      console.log(performNumericalOperation("multiplication", 7, 7));
+
+      // Function to find the square root of a number
+      function findSquareRoot(num) {
+        return Math.sqrt(num);
+      }
+      console.log(findSquareRoot(7));
+
+      // Function to round a number to a specified number of decimal places
+      function roundNumber(num, decimalPlaces) {
+        return num.toFixed(decimalPlaces);
+      }
+      console.log(roundNumber(5.14159, 2));
+    </script>
+  </body>
+</html>

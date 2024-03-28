@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Array of numbers
+      const numbers = [3, 8, 1, 6, 4, 9, 2, 7, 5];
+
+      // Calculate the sum of all numbers in the array with reduce function and for loop
+       const sumReduce = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+       let sumForLoop = 0;
+       for (let i = 0; i < numbers.length; i++) {
+       sumForLoop += numbers[i];
+     }
+
+      console.log("Sum using reduce:", sumReduce);
+      console.log("Sum using for loop:", sumForLoop);
+
+      // Find the maximum and minimum values in the array after sorting it
+      const sortedNumbers = numbers.slice().sort((a, b) => a - b);
+      const min = sortedNumbers[0];
+      const max = sortedNumbers[sortedNumbers.length - 1];
+      console.log("Minimum value:", min);
+      console.log("Maximum value:", max);
+
+      // Filter out even and odd numbers from the array with filter function
+      const evenNumbers = numbers.filter((num) => num % 2 === 0);
+      const oddNumbers = numbers.filter((num) => num % 2 !== 0);
+      console.log("Even numbers:", evenNumbers);
+      console.log("Odd numbers:", oddNumbers);
+
+      // Convert each number in the array to its square by map function
+      const squaredNumbers = numbers.map((num) => num * num);
+      console.log("Squared numbers:", squaredNumbers);
+
+      // Find prime numbers from the array elements
+      function isPrime(num) {
+        if (num <= 1) return false;
+        if (num === 2) return true;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+
+      const primeNumbers = numbers.filter((num) => isPrime(num));
+      console.log("Prime numbers:", primeNumbers);
+
+    </script>
+  </body>
+</html>

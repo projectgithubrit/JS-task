@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const text = `Linia luctus. Sed quis arcu eu purus sollicitudin ultricies. Nulla facilisi. Pellentesque nec pretium risus. Sed aliquet leo vitae vestibulum lobortis. Duis quis magna ac arcu varius suscipit. Ut sed justo non velit interdum eleifend nec nec tortor. Morbi eget nisi vitae purus tincidunt scelerisque. Mauris at quam turpis. Donec gravida magna ac nulla mattis, eu auctor arcu congue. Pellentesque at vestibulum justo. Nullam eu ex nec libero fermentum ultricies in id sapien. Fusce dictum sem a posuere facilisis. Vivamus euismod mauris nec justo volutpat, sed tincidunt neque pulvinar. Suspendisse potenti.`;
+
+      // Extract words using regular expression
+      const words = text.match(/\b[a-zA-Z]+\b/g);
+
+      // Utilize a Set to store unique words
+      const uniqueWords = new Set(words);
+
+      // Function to count occurrences of specific words
+      function countOccurrences(wordArray, specificWord) {
+        let count = 0;
+        for (let i = 0; i < wordArray.length; i++) {
+          if (wordArray[i] === specificWord) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      // Prompt the user to specify words they want to count occurrences of
+      let wordsToCount;
+      try {
+        wordsToCount = prompt(
+          "Enter words separated by commas to count occurrences (e.g., word1, word2):"
+        );
+        if (!wordsToCount) {
+          throw new Error("No input provided.");
+        }
+      } catch (error) {
+        console.error("Error:", error.message);
+      } finally {
+        console.log("Words to count:", wordsToCount);
+      }
+
+      // Use break & continue statements to control loops efficiently
+      const occurrences = {};
+      const wordsArray = wordsToCount.split(",").map((word) => word.trim());
+      for (let word of wordsArray) {
+        if (!word) continue; // Skip empty words
+        if (!uniqueWords.has(word)) {
+          console.log(`"${word}" not found in the text.`);
+          continue;
+        }
+        occurrences[word] = countOccurrences(words, word);
+      }
+
+      // Display the count of occurrences for each specified word in an object
+      console.log("Occurrences:", occurrences);
+    </script>
+  </body>
+</html>
